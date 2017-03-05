@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Review</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ review.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ review.title }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ review.content }}</td>
+            </tr>
+            <tr>
+                <th>Username</th>
+                <td>{{ review.userName }}</td>
+            </tr>
+            <tr>
+                <th>Aromascore</th>
+                <td>{{ review.aromaScore }}</td>
+            </tr>
+            <tr>
+                <th>Appearancescore</th>
+                <td>{{ review.appearanceScore }}</td>
+            </tr>
+            <tr>
+                <th>Tastescore</th>
+                <td>{{ review.tasteScore }}</td>
+            </tr>
+            <tr>
+                <th>Palatescore</th>
+                <td>{{ review.palateScore }}</td>
+            </tr>
+            <tr>
+                <th>Overallscore</th>
+                <td>{{ review.overallScore }}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{% if review.createdAt %}{{ review.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updatedat</th>
+                <td>{% if review.updatedAt %}{{ review.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('review_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('review_edit', { 'id': review.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

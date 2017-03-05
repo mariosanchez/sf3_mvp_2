@@ -1,0 +1,16 @@
+{% extends 'BeerScoreBundle::base.html.twig' %}
+
+{% block body %}
+    <h1>Beer creation</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input class="waves-effect waves-light btn" type="submit" value="Create" />
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a class="waves-effect waves-light btn" href="{{ path('beer_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

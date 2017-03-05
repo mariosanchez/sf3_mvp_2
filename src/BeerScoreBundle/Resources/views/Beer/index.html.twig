@@ -1,0 +1,53 @@
+{% extends 'BeerScoreBundle::base.html.twig' %}
+
+{% block body %}
+<h1>Beers list</h1>
+
+<table border="1" cellpadding="5" style="width: 100%">
+    <thead>
+    <tr>
+        <th>Photo</th>
+        <th>Name</th>
+        <th>Brewery</th>
+        <th>Style</th>
+        <th>Country</th>
+        <th>Score</th>
+        <th>Reviews</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for beer in beers %}
+    <tr>
+        <td>
+            <a href="{{ path('beer_show', { 'id': beer.id }) }}">
+                <img style="width: 200px;" src="{{ beer.photo }}" alt="{{ beer.name }}">
+            </a>
+        </td>
+        <td><a href="{{ path('beer_show', { 'id': beer.id }) }}">{{ beer.name }}</a></td>
+        <td>{{ beer.brewery }}</td>
+        <td>{{ beer.style }}</td>
+        <td>{{ beer.country }}</td>
+        <td>{% if beer.score %}{{ beer.score|round(2) }}{% else %}N/A{% endif %}</td>
+        <td>{{ beer.reviews|length }}</td>
+        <td>
+            <ul>
+                <li>
+                    <a href="{{ path('beer_show', { 'id': beer.id }) }}"><i class="tiny material-icons">pageview</i> show</a>
+                </li>
+                <li>
+                    <a href="{{ path('beer_edit', { 'id': beer.id }) }}"><i class="tiny material-icons">edit</i> edit</a>
+                </li>
+            </ul>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a class="waves-effect waves-light btn" href="{{ path('beer_new') }}"><i class="material-icons left">note_add</i> Create a new beer</a>
+    </li>
+</ul>
+{% endblock %}

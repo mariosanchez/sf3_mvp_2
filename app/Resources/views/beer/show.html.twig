@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Beer</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ beer.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ beer.name }}</td>
+            </tr>
+            <tr>
+                <th>Brewery</th>
+                <td>{{ beer.brewery }}</td>
+            </tr>
+            <tr>
+                <th>Style</th>
+                <td>{{ beer.style }}</td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td>{{ beer.country }}</td>
+            </tr>
+            <tr>
+                <th>Score</th>
+                <td>{{ beer.score }}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{% if beer.createdAt %}{{ beer.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updatedat</th>
+                <td>{% if beer.updatedAt %}{{ beer.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('beer_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('beer_edit', { 'id': beer.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,48 @@
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <table>
+                <tbody>
+                <tr>
+                    <td>
+                        <a href="{{ path('beer_show', { 'id': beer.id }) }}">
+                            <img style="width: 200px;" src="{{ beer.photo }}" alt="{{ beer.name }}">
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong style="text-align: center; font-size: 1.5em">
+                            Score: {% if beer.score %}{{ beer.score|round(2) }}{% else %}N/A{% endif %}
+                        </strong>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+            <table>
+                <tbody>
+                <tr>
+                    <th>Brewery</th>
+                    <td>{{ beer.brewery }}</td>
+                </tr>
+                <tr>
+                    <th>Style</th>
+                    <td>{{ beer.style }}</td>
+                </tr>
+                <tr>
+                    <th>Country</th>
+                    <td>{{ beer.country }}</td>
+                </tr>
+                <tr>
+                    <th>ABV</th>
+                    <td>{{ beer.abv }}%</td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    </tbody>
+</table>

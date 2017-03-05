@@ -1,0 +1,32 @@
+<div>
+    <div class="row">
+        <div class="col s12"><h5>{{ review.title }}</h5></div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <div class="chip">
+                <img src="{{ asset('apple-touch-icon.png') }}" alt="icon">
+                {{ review.userName }}  |  {{ review.createdAt|date("m/d/Y \\a\\t G:i") }}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <div class="chip">Aroma: {{ review.aromaScore }}</div>
+            <div class="chip">Appearance: {{ review.appearanceScore }}</div>
+            <div class="chip">Taste: {{ review.tasteScore }}</div>
+            <div class="chip">Palate: {{ review.palateScore }}</div>
+            <div class="chip blue lighten-4">Overall: {{ review.overallScore|round(2) }}</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <p>{{ review.content }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <div class="divider"></div>
+        </div>
+    </div>
+</div>

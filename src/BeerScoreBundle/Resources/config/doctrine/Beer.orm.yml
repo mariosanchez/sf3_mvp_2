@@ -1,0 +1,48 @@
+BeerScoreBundle\Entity\Beer:
+    type: entity
+    table: null
+    repositoryClass: BeerScoreBundle\Repository\BeerRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        brewery:
+            type: string
+            length: 255
+        style:
+            type: string
+            length: 255
+        abv:
+            type: decimal
+            precision: '4'
+            scale: '2'
+        country:
+            type: string
+            length: '2'
+        photo:
+            type: text
+        score:
+            type: decimal
+            precision: '7'
+            scale: '5'
+            nullable: true
+        createdAt:
+            type: datetime
+            column: created_at
+        updatedAt:
+            type: datetime
+            column: updated_at
+    oneToMany:
+        reviews:
+            orderBy: { 'updatedAt': 'DESC' }
+            targetEntity: Review
+            mappedBy: beer
+    lifecycleCallbacks:
+        prePersist: [ updatedTimestamps ]
+

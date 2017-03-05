@@ -1,0 +1,11 @@
+beer_scire_index:
+    path:     /
+    defaults: { _controller: "BeerScoreBundle:Default:index" }
+    methods:  GET
+beer_score_beer:
+    resource: "@BeerScoreBundle/Resources/config/routing/beer.yml"
+    prefix:   /beer
+beer_score_review:
+    resource: "@BeerScoreBundle/Resources/config/routing/review.yml"
+    prefix:   /review
+

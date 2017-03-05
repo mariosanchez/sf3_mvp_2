@@ -1,0 +1,14 @@
+{% extends 'BeerScoreBundle::base.html.twig' %}
+
+{% block body %}
+    <h1>New review for {{ beer.name }}</h1>
+
+    {% include 'BeerScoreBundle:Beer:detail.html.twig' %}
+
+    <div>
+        {{ form_start(review_form) }}
+        {{ form_widget(review_form) }}
+        <input class="waves-effect waves-light btn" type="submit" value="Add review" />
+        {{ form_end(review_form) }}
+    </div>
+{% endblock %}
