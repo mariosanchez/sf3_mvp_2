@@ -1,4 +1,3 @@
-proyecto
-========
+# Symfony 3 MVP
+MPWAR Frameworks Symfony 3 MVP Example: BeerScore
 
-A Symfony project created on February 22, 2017, 8:23 pm.
