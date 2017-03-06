@@ -1,4 +1,4 @@
-beer_scire_index:
+beer_score_index:
     path:     /
     defaults: { _controller: "BeerScoreBundle:Default:index" }
     methods:  GET
