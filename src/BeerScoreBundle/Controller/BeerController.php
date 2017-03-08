@@ -19,9 +19,9 @@ class BeerController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
+        $entityManager = $this->getDoctrine()->getManager();
 
-        $beers = $em->getRepository('BeerScoreBundle:Beer')->findAll();
+        $beers = $entityManager->getRepository('BeerScoreBundle:Beer')->findAll();
 
         return $this->render('BeerScoreBundle:Beer:index.html.twig', array(
             'beers' => $beers,
@@ -38,9 +38,9 @@ class BeerController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($beer);
-            $em->flush($beer);
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($beer);
+            $entityManager->flush($beer);
 
             return $this->redirectToRoute('beer_show', array('id' => $beer->getId()));
         }
@@ -95,9 +95,9 @@ class BeerController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($beer);
-            $em->flush($beer);
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($beer);
+            $entityManager->flush($beer);
         }
 
         return $this->redirectToRoute('beer_index');
@@ -114,10 +114,10 @@ class BeerController extends Controller
 
         if ($reviewForm->isSubmitted() && $reviewForm->isValid()) {
             $review->processOverallScore();
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($review);
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($review);
             $beer->addReview($review);
-            $em->flush();
+            $entityManager->flush();
             $event = new ReviewDoneEvent($review);
             $this->get('event_dispatcher')->dispatch(ReviewDoneEvent::NAME, $event);
             return $this->redirectToRoute('beer_show', array('id' => $beer->getId()));

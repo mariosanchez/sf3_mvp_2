@@ -1,6 +1,6 @@
-beer_score_index:
+beer_index:
     path:     /
-    defaults: { _controller: "BeerScoreBundle:Default:index" }
+    defaults: { _controller: "BeerScoreBundle:Beer:index" }
     methods:  GET
 beer_score_beer:
     resource: "@BeerScoreBundle/Resources/config/routing/beer.yml"

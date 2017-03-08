@@ -1,8 +1,3 @@
-beer_index:
-    path:     /
-    defaults: { _controller: "BeerScoreBundle:Beer:index" }
-    methods:  GET
-
 beer_show:
     path:     /{id}/show
     defaults: { _controller: "BeerScoreBundle:Beer:show" }
