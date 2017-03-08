@@ -66,282 +66,216 @@ class Review
 
     private $beer;
 
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime('now');
+    }
 
     /**
-     * Get id
-     *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
 
     /**
-     * Set title
-     *
-     * @param string $title
-     *
-     * @return Review
+     * @param int $id
      */
-    public function setTitle($title)
+    public function setId(int $id)
     {
-        $this->title = $title;
-
-        return $this;
+        $this->id = $id;
     }
 
     /**
-     * Get title
-     *
      * @return string
      */
-    public function getTitle()
+    public function getTitle(): ?string
     {
         return $this->title;
     }
 
     /**
-     * Set content
-     *
-     * @param string $content
-     *
-     * @return Review
+     * @param string $title
      */
-    public function setContent($content)
+    public function setTitle(string $title)
     {
-        $this->content = $content;
-
-        return $this;
+        $this->title = $title;
     }
 
     /**
-     * Get content
-     *
      * @return string
      */
-    public function getContent()
+    public function getContent(): ?string
     {
         return $this->content;
     }
 
     /**
-     * Set userName
-     *
-     * @param string $userName
-     *
-     * @return Review
+     * @param string $content
      */
-    public function setUserName($userName)
+    public function setContent(string $content)
     {
-        $this->userName = $userName;
-
-        return $this;
+        $this->content = $content;
     }
 
     /**
-     * Get userName
-     *
      * @return string
      */
-    public function getUserName()
+    public function getUserName(): ?string
     {
         return $this->userName;
     }
 
     /**
-     * Set aromaScore
-     *
-     * @param integer $aromaScore
-     *
-     * @return Review
+     * @param string $userName
      */
-    public function setAromaScore($aromaScore)
+    public function setUserName(string $userName)
     {
-        $this->aromaScore = $aromaScore;
-
-        return $this;
+        $this->userName = $userName;
     }
 
     /**
-     * Get aromaScore
-     *
      * @return int
      */
-    public function getAromaScore()
+    public function getAromaScore(): ?int
     {
         return $this->aromaScore;
     }
 
     /**
-     * Set appearanceScore
-     *
-     * @param integer $appearanceScore
-     *
-     * @return Review
+     * @param int $aromaScore
      */
-    public function setAppearanceScore($appearanceScore)
+    public function setAromaScore(int $aromaScore)
     {
-        $this->appearanceScore = $appearanceScore;
-
-        return $this;
+        $this->aromaScore = $aromaScore;
     }
 
     /**
-     * Get appearanceScore
-     *
      * @return int
      */
-    public function getAppearanceScore()
+    public function getAppearanceScore(): ?int
     {
         return $this->appearanceScore;
     }
 
     /**
-     * Set tasteScore
-     *
-     * @param integer $tasteScore
-     *
-     * @return Review
+     * @param int $appearanceScore
      */
-    public function setTasteScore($tasteScore)
+    public function setAppearanceScore(int $appearanceScore)
     {
-        $this->tasteScore = $tasteScore;
-
-        return $this;
+        $this->appearanceScore = $appearanceScore;
     }
 
     /**
-     * Get tasteScore
-     *
      * @return int
      */
-    public function getTasteScore()
+    public function getTasteScore(): ?int
     {
         return $this->tasteScore;
     }
 
     /**
-     * Set palateScore
-     *
-     * @param integer $palateScore
-     *
-     * @return Review
+     * @param int $tasteScore
      */
-    public function setPalateScore($palateScore)
+    public function setTasteScore(int $tasteScore)
     {
-        $this->palateScore = $palateScore;
-
-        return $this;
+        $this->tasteScore = $tasteScore;
     }
 
     /**
-     * Get palateScore
-     *
      * @return int
      */
-    public function getPalateScore()
+    public function getPalateScore(): ?int
     {
         return $this->palateScore;
     }
 
     /**
-     * Set overallScore
-     *
-     * @param integer $overallScore
-     *
-     * @return Review
+     * @param int $palateScore
      */
-    public function setOverallScore($overallScore)
+    public function setPalateScore(int $palateScore)
     {
-        $this->overallScore = $overallScore;
-
-        return $this;
+        $this->palateScore = $palateScore;
     }
 
     /**
-     * Get overallScore
-     *
-     * @return int
+     * @return float
      */
-    public function getOverallScore()
+    public function getOverallScore(): ?float
     {
         return $this->overallScore;
     }
 
     /**
-     * Set createdAt
-     *
-     * @param \DateTime $createdAt
-     *
-     * @return Review
+     * @param float $overallScore
      */
-    public function setCreatedAt($createdAt)
+    public function setOverallScore(float $overallScore)
     {
-        $this->createdAt = $createdAt;
-
-        return $this;
+        $this->overallScore = $overallScore;
     }
 
     /**
-     * Get createdAt
-     *
      * @return \DateTime
      */
-    public function getCreatedAt()
+    public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
     /**
-     * Set updatedAt
-     *
-     * @param \DateTime $updatedAt
-     *
-     * @return Review
+     * @param \DateTime $createdAt
      */
-    public function setUpdatedAt($updatedAt)
+    public function setCreatedAt(\DateTime $createdAt)
     {
-        $this->updatedAt = $updatedAt;
-
-        return $this;
+        $this->createdAt = $createdAt;
     }
 
     /**
-     * Get updatedAt
-     *
      * @return \DateTime
      */
-    public function getUpdatedAt()
+    public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
     /**
-     * @return Beer
+     * @param \DateTime $updatedAt
      */
-    public function getBeer()
+    public function setUpdatedAt(\DateTime $updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBeer(): ?Beer
     {
         return $this->beer;
     }
 
     /**
-     * @param Beer $beer
+     * @param mixed $beer
      */
     public function setBeer(Beer $beer)
     {
         $this->beer = $beer;
     }
 
+
+
+    /**
+     * Updates updatedAt value on update
+     */
     public function updatedTimestamps()
     {
         $this->setUpdatedAt(new \DateTime('now'));
-
-        if ($this->getCreatedAt() == null) {
-            $this->setCreatedAt(new \DateTime('now'));
-        }
     }
 
+    /**
+     * Process the overll score of a review based on it's scores
+     */
     public function processOverallScore()
     {
         $scoreSummatory = $this->getAppearanceScore() +

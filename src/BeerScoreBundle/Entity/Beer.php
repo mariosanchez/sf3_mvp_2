@@ -4,6 +4,7 @@ namespace BeerScoreBundle\Entity;
 
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\PersistentCollection;
 
 /**
  * Beer
@@ -68,94 +69,77 @@ class Beer
     public function __construct()
     {
         $this->reviews = new ArrayCollection();
+        $this->createdAt = new \DateTime('now');
     }
 
     /**
-     * Get id
-     *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
 
     /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return Beer
+     * @param int $id
      */
-    public function setName($name)
+    public function setId(int $id)
     {
-        $this->name = $name;
-
-        return $this;
+        $this->id = $id;
     }
 
     /**
-     * Get name
-     *
      * @return string
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
 
     /**
-     * Set brewery
-     *
-     * @param string $brewery
-     *
-     * @return Beer
+     * @param string $name
      */
-    public function setBrewery($brewery)
+    public function setName(string $name)
     {
-        $this->brewery = $brewery;
-
-        return $this;
+        $this->name = $name;
     }
 
     /**
-     * Get brewery
-     *
      * @return string
      */
-    public function getBrewery()
+    public function getBrewery(): ?string
     {
         return $this->brewery;
     }
 
     /**
-     * Set style
-     *
-     * @param string $style
-     *
-     * @return Beer
+     * @param string $brewery
      */
-    public function setStyle($style)
+    public function setBrewery(string $brewery)
     {
-        $this->style = $style;
-
-        return $this;
+        $this->brewery = $brewery;
     }
 
     /**
-     * Get style
-     *
      * @return string
      */
-    public function getStyle()
+    public function getStyle(): ?string
     {
         return $this->style;
     }
 
     /**
+     * @param string $style
+     */
+    public function setStyle(string $style)
+    {
+        $this->style = $style;
+    }
+
+    /**
      * @return float
      */
-    public function getAbv()
+    public function getAbv(): ?float
     {
         return $this->abv;
     }
@@ -169,33 +153,25 @@ class Beer
     }
 
     /**
-     * Set country
-     *
-     * @param string $country
-     *
-     * @return Beer
-     */
-    public function setCountry($country)
-    {
-        $this->country = $country;
-
-        return $this;
-    }
-
-    /**
-     * Get country
-     *
      * @return string
      */
-    public function getCountry()
+    public function getCountry(): ?string
     {
         return $this->country;
     }
 
     /**
+     * @param string $country
+     */
+    public function setCountry(string $country)
+    {
+        $this->country = $country;
+    }
+
+    /**
      * @return string
      */
-    public function getPhoto()
+    public function getPhoto(): ?string
     {
         return $this->photo;
     }
@@ -209,77 +185,56 @@ class Beer
     }
 
     /**
-     * Set score
-     *
-     * @param integer $score
-     *
-     * @return Beer
+     * @return float|null
      */
-    public function setScore($score)
-    {
-        $this->score = $score;
-
-        return $this;
-    }
-
-    /**
-     * Get score
-     *
-     * @return int
-     */
-    public function getScore()
+    public function getScore(): ?float
     {
         return $this->score;
     }
 
     /**
-     * Set createdAt
-     *
-     * @param \DateTime $createdAt
-     *
-     * @return Beer
+     * @param float $score
      */
-    public function setCreatedAt($createdAt)
+    public function setScore(float $score)
     {
-        $this->createdAt = $createdAt;
-
-        return $this;
+        $this->score = $score;
     }
 
     /**
-     * Get createdAt
-     *
      * @return \DateTime
      */
-    public function getCreatedAt()
+    public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
     /**
-     * Set updatedAt
-     *
-     * @param \DateTime $updatedAt
-     *
-     * @return Beer
+     * @param \DateTime $createdAt
      */
-    public function setUpdatedAt($updatedAt)
+    public function setCreatedAt(\DateTime $createdAt)
     {
-        $this->updatedAt = $updatedAt;
-
-        return $this;
+        $this->createdAt = $createdAt;
     }
 
     /**
-     * Get updatedAt
-     *
      * @return \DateTime
      */
-    public function getUpdatedAt()
+    public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
+    /**
+     * @param \DateTime $updatedAt
+     */
+    public function setUpdatedAt(\DateTime $updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+    }
+
+    /**
+     * @param Review $review
+     */
     public function addReview(Review $review)
     {
         $this->reviews[] = $review;
@@ -288,22 +243,24 @@ class Beer
     }
 
     /**
-     * @return Collection
+     * @return PersistentCollection|null
      */
-    public function getReviews()
+    public function getReviews(): ?PersistentCollection
     {
         return $this->reviews;
     }
 
+    /**
+     * Updates updatedAt value on update
+     */
     public function updatedTimestamps()
     {
         $this->setUpdatedAt(new \DateTime('now'));
-
-        if ($this->getCreatedAt() == null) {
-            $this->setCreatedAt(new \DateTime('now'));
-        }
     }
 
+    /**
+     * Process the score of a beer based on it's reviews
+     */
     public function processScore()
     {
         $totalReviews = $this->reviews->count();
