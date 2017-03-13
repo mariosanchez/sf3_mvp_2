@@ -6,7 +6,6 @@ use BeerScoreBundle\Entity\Beer;
 use BeerScoreBundle\Entity\Review;
 use BeerScoreBundle\Event\ReviewDoneEvent;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -16,6 +15,8 @@ class BeerController extends Controller
 {
     /**
      * Lists all beer entities.
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function indexAction()
     {
@@ -30,6 +31,10 @@ class BeerController extends Controller
 
     /**
      * Creates a new beer entity.
+     *
+     * @param Request $request
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function newAction(Request $request)
     {
@@ -53,6 +58,10 @@ class BeerController extends Controller
 
     /**
      * Finds and displays a beer entity.
+     *
+     * @param Beer $beer
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function showAction(Beer $beer)
     {
@@ -66,6 +75,11 @@ class BeerController extends Controller
 
     /**
      * Displays a form to edit an existing beer entity.
+     *
+     * @param Request $request
+     * @param Beer $beer
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function editAction(Request $request, Beer $beer)
     {
@@ -88,6 +102,11 @@ class BeerController extends Controller
 
     /**
      * Deletes a beer entity.
+     *
+     * @param Request $request
+     * @param Beer $beer
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function deleteAction(Request $request, Beer $beer)
     {
@@ -105,6 +124,11 @@ class BeerController extends Controller
 
     /**
      * Adds a review entity to a beer entity.
+     *
+     * @param Request $request
+     * @param Beer $beer
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function addReviewAction(Request $request, Beer $beer)
     {
@@ -141,7 +165,6 @@ class BeerController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('beer_delete', array('id' => $beer->getId())))
             ->setMethod('DELETE')
-            ->getForm()
-        ;
+            ->getForm();
     }
 }

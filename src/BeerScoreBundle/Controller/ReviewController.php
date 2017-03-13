@@ -8,13 +8,13 @@ use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Review controller.
- *
  */
 class ReviewController extends Controller
 {
     /**
      * Lists all review entities.
      *
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function indexAction()
     {
@@ -30,6 +30,9 @@ class ReviewController extends Controller
     /**
      * Creates a new review entity.
      *
+     * @param Request $request
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function newAction(Request $request)
     {
@@ -54,6 +57,9 @@ class ReviewController extends Controller
     /**
      * Finds and displays a review entity.
      *
+     * @param Review $review
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function showAction(Review $review)
     {
@@ -68,6 +74,10 @@ class ReviewController extends Controller
     /**
      * Displays a form to edit an existing review entity.
      *
+     * @param Request $request
+     * @param Review $review
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function editAction(Request $request, Review $review)
     {
@@ -88,9 +98,14 @@ class ReviewController extends Controller
         ));
     }
 
+
     /**
      * Deletes a review entity.
      *
+     * @param Request $request
+     * @param Review $review
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function deleteAction(Request $request, Review $review)
     {
@@ -118,7 +133,6 @@ class ReviewController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('review_delete', array('id' => $review->getId())))
             ->setMethod('DELETE')
-            ->getForm()
-        ;
+            ->getForm();
     }
 }

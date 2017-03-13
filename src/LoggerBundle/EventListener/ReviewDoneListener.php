@@ -2,10 +2,9 @@
 
 namespace LoggerBundle\EventListener;
 
-use Monolog\Logger;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use BeerScoreBundle\Event\ReviewDoneEvent;
 use Psr\Log\LoggerInterface;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class ReviewDoneListener implements EventSubscriberInterface
 {
@@ -17,10 +16,15 @@ class ReviewDoneListener implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-          ReviewDoneEvent::NAME => 'handleReviewDone'
+            ReviewDoneEvent::NAME => 'handleReviewDone'
         ];
     }
 
+    /**
+     * Handle incomming events on review done
+     *
+     * @param ReviewDoneEvent $event
+     */
     public function handleReviewDone(ReviewDoneEvent $event)
     {
         $review = $event->getReview();
