@@ -41,7 +41,7 @@ BeerScore\BeerBundle\Entity\Beer:
     oneToMany:
         reviews:
             orderBy: { 'updatedAt': 'DESC' }
-            targetEntity: Review
+            targetEntity: BeerScore\ReviewBundle\Entity\Review
             mappedBy: beer
     lifecycleCallbacks:
         prePersist: [ updatedTimestamps ]

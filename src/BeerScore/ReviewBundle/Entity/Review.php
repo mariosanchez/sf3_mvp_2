@@ -1,6 +1,8 @@
 <?php
 
-namespace BeerScore\BeerBundle\Entity;
+namespace BeerScore\ReviewBundle\Entity;
+
+use BeerScore\BeerBundle\Entity\Beer;
 
 /**
  * Review

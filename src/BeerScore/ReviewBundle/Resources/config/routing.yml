@@ -1,0 +1,3 @@
+beer_score_review:
+    resource: "@BeerScoreReviewBundle/Resources/config/routing/review.yml"
+    prefix:   /review

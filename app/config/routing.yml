@@ -1,2 +1,6 @@
+beer_score_review:
+    resource: "@BeerScoreReviewBundle/Resources/config/routing.yml"
+    prefix:   /
+
 beer_score_beer:
     resource: "@BeerScoreBeerBundle/Resources/config/routing.yml"

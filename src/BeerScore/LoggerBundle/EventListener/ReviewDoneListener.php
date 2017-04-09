@@ -2,7 +2,7 @@
 
 namespace BeerScore\LoggerBundle\EventListener;
 
-use BeerScore\BeerBundle\Event\ReviewDoneEvent;
+use BeerScore\ReviewBundle\Event\ReviewDoneEvent;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 

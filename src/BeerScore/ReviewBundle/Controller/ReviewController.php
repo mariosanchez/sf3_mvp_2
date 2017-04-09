@@ -1,8 +1,8 @@
 <?php
 
-namespace BeerScore\BeerBundle\Controller;
+namespace BeerScore\ReviewBundle\Controller;
 
-use BeerScore\BeerBundle\Entity\Review;
+use BeerScore\ReviewBundle\Entity\Review;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -20,9 +20,9 @@ class ReviewController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $reviews = $em->getRepository('BeerScoreBeerBundle:Review')->findAll();
+        $reviews = $em->getRepository('BeerScoreReviewBundle:Review')->findAll();
 
-        return $this->render('BeerScoreBeerBundle:Review:index.html.twig', array(
+        return $this->render('BeerScoreReviewBundle:Review:index.html.twig', array(
             'reviews' => $reviews,
         ));
     }
@@ -37,7 +37,7 @@ class ReviewController extends Controller
     public function newAction(Request $request)
     {
         $review = new Review();
-        $form = $this->createForm('BeerScore\BeerBundle\Form\ReviewType', $review);
+        $form = $this->createForm('BeerScore\ReviewBundle\Form\ReviewType', $review);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -48,7 +48,7 @@ class ReviewController extends Controller
             return $this->redirectToRoute('review_show', array('id' => $review->getId()));
         }
 
-        return $this->render('BeerScoreBeerBundle:Review:new.html.twig', array(
+        return $this->render('BeerScoreReviewBundle:Review:new.html.twig', array(
             'review' => $review,
             'form' => $form->createView(),
         ));
@@ -65,7 +65,7 @@ class ReviewController extends Controller
     {
         $deleteForm = $this->createDeleteForm($review);
 
-        return $this->render('BeerScoreBeerBundle:Review:show.html.twig', array(
+        return $this->render('BeerScoreReviewBundle:Review:show.html.twig', array(
             'review' => $review,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -82,7 +82,7 @@ class ReviewController extends Controller
     public function editAction(Request $request, Review $review)
     {
         $deleteForm = $this->createDeleteForm($review);
-        $editForm = $this->createForm('BeerScore\BeerBundle\Form\ReviewType', $review);
+        $editForm = $this->createForm('BeerScore\ReviewBundle\Form\ReviewType', $review);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
@@ -91,7 +91,7 @@ class ReviewController extends Controller
             return $this->redirectToRoute('review_edit', array('id' => $review->getId()));
         }
 
-        return $this->render('BeerScoreBeerBundle:Review:edit.html.twig', array(
+        return $this->render('BeerScoreReviewBundle:Review:edit.html.twig', array(
             'review' => $review,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

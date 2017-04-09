@@ -5,7 +5,3 @@ beer_index:
 beer_score_beer:
     resource: "@BeerScoreBeerBundle/Resources/config/routing/beer.yml"
     prefix:   /beer
-beer_score_review:
-    resource: "@BeerScoreBeerBundle/Resources/config/routing/review.yml"
-    prefix:   /review
-

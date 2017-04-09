@@ -3,8 +3,8 @@
 namespace BeerScore\BeerBundle\Controller;
 
 use BeerScore\BeerBundle\Entity\Beer;
-use BeerScore\BeerBundle\Entity\Review;
-use BeerScore\BeerBundle\Event\ReviewDoneEvent;
+use BeerScore\ReviewBundle\Entity\Review;
+use BeerScore\ReviewBundle\Event\ReviewDoneEvent;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -133,7 +133,7 @@ class BeerController extends Controller
     public function addReviewAction(Request $request, Beer $beer)
     {
         $review = new Review();
-        $reviewForm = $this->createForm('BeerScore\BeerBundle\Form\ReviewType', $review);
+        $reviewForm = $this->createForm('BeerScore\ReviewBundle\Form\ReviewType', $review);
         $reviewForm->handleRequest($request);
 
         if ($reviewForm->isSubmitted() && $reviewForm->isValid()) {

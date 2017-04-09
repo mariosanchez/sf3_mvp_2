@@ -5,6 +5,7 @@ namespace BeerScore\BeerBundle\Entity;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\PersistentCollection;
+use BeerScore\ReviewBundle\Entity\Review;
 
 /**
  * Beer
@@ -243,9 +244,9 @@ class Beer
     }
 
     /**
-     * @return PersistentCollection|null
+     * @return Collection|null
      */
-    public function getReviews(): ?PersistentCollection
+    public function getReviews(): ?Collection
     {
         return $this->reviews;
     }

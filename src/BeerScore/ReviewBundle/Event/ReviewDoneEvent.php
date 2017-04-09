@@ -1,8 +1,8 @@
 <?php
 
-namespace BeerScore\BeerBundle\Event;
+namespace BeerScore\ReviewBundle\Event;
 
-use BeerScore\BeerBundle\Entity\Review;
+use BeerScore\ReviewBundle\Entity\Review;
 use Symfony\Component\EventDispatcher\Event;
 
 

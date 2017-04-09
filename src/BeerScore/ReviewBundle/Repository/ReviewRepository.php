@@ -1,6 +1,6 @@
 <?php
 
-namespace BeerScore\BeerBundle\Repository;
+namespace BeerScore\ReviewBundle\Repository;
 
 /**
  * ReviewRepository

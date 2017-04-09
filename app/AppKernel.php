@@ -17,6 +17,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new BeerScore\BeerBundle\BeerScoreBeerBundle(),
             new BeerScore\LoggerBundle\BeerScoreLoggerBundle(),
+            new BeerScore\ReviewBundle\BeerScoreReviewBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

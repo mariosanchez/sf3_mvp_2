@@ -1,6 +1,6 @@
 <?php
 
-namespace BeerScore\BeerBundle\Form;
+namespace BeerScore\ReviewBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -29,7 +29,7 @@ class ReviewType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'BeerScore\BeerBundle\Entity\Review'
+            'data_class' => 'BeerScore\ReviewBundle\Entity\Review'
         ));
     }
 

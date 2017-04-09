@@ -1,0 +1,4 @@
+services:
+#    beer_score_review.example:
+#        class: BeerScore\ReviewBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
