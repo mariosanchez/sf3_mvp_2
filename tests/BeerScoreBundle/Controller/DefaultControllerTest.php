@@ -1,6 +1,6 @@
 <?php
 
-namespace BeerScoreBundle\Tests\Controller;
+namespace BeerScore\BeerBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

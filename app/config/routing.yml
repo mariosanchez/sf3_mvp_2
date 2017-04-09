@@ -1,2 +1,2 @@
 beer_score_beer:
-    resource: "@BeerScoreBundle/Resources/config/routing.yml"
+    resource: "@BeerScoreBeerBundle/Resources/config/routing.yml"

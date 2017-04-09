@@ -8,7 +8,7 @@ services:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
     beer_score.review_done:
-        class: LoggerBundle\EventListener\ReviewDoneListener
+        class: BeerScore\LoggerBundle\EventListener\ReviewDoneListener
         arguments: ["@logger"]
         tags:
             - {name: kernel.event_listener, event:review.done, method:handleReviewDone}

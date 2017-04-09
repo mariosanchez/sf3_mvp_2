@@ -1,0 +1,24 @@
+beer_show:
+    path:     /{id}/show
+    defaults: { _controller: "BeerScoreBeerBundle:Beer:show" }
+    methods:  GET
+
+beer_new:
+    path:     /new
+    defaults: { _controller: "BeerScoreBeerBundle:Beer:new" }
+    methods:  [GET, POST]
+
+beer_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "BeerScoreBeerBundle:Beer:edit" }
+    methods:  [GET, POST]
+
+beer_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "BeerScoreBeerBundle:Beer:delete" }
+    methods:  DELETE
+
+beer_add_review:
+    path:     /{id}/addReview
+    defaults: { _controller: "BeerScoreBeerBundle:Beer:addReview" }
+    methods:  [GET, POST]

@@ -1,12 +1,12 @@
 # Symfony 3 MVP
 MPWAR Frameworks Symfony 3 MVP Example: BeerScore
 
-##Initialize
+## Initialize
 ```
 composer install
 ```
 
-##Functionalities
+## Functionalities
 This is a basic example of a beer review platform. 
 You can CRUD beers and review them.
 
