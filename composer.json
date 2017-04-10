@@ -6,7 +6,8 @@
         "psr-4": {
             "BeerScore\\BeerBundle\\": "app/src/BeerScore/BeerBundle/",
             "BeerScore\\ReviewBundle\\": "app/src/BeerScore/ReviewBundle/",
-            "BeerScore\\LoggerBundle\\": "app/src/BeerScore/LoggerBundle/"
+            "BeerScore\\LoggerBundle\\": "app/src/BeerScore/LoggerBundle/",
+            "BeerScore\\": "src/"
         },
         "classmap": [
             "app/app/AppKernel.php",
