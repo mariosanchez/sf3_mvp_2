@@ -4,11 +4,13 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "": "src/"
+            "BeerScore\\BeerBundle\\": "app/src/BeerScore/BeerBundle/",
+            "BeerScore\\ReviewBundle\\": "app/src/BeerScore/ReviewBundle/",
+            "BeerScore\\LoggerBundle\\": "app/src/BeerScore/LoggerBundle/"
         },
         "classmap": [
-            "app/AppKernel.php",
-            "app/AppCache.php"
+            "app/app/AppKernel.php",
+            "app/app/AppCache.php"
         ]
     },
     "autoload-dev": {
@@ -52,14 +54,14 @@
         ]
     },
     "extra": {
-        "symfony-app-dir": "app",
-        "symfony-bin-dir": "bin",
-        "symfony-var-dir": "var",
-        "symfony-web-dir": "web",
+        "symfony-app-dir": "app/app",
+        "symfony-bin-dir": "app/bin",
+        "symfony-var-dir": "app/var",
+        "symfony-web-dir": "app/web",
         "symfony-tests-dir": "tests",
         "symfony-assets-install": "relative",
         "incenteev-parameters": {
-            "file": "app/config/parameters.yml"
+            "file": "app/app/config/parameters.yml"
         },
         "branch-alias": null
     }
