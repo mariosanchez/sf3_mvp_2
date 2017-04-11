@@ -1,7 +1,7 @@
 BeerScore\BeerBundle\Entity\Beer:
     type: entity
     table: null
-    repositoryClass: BeerScore\BeerBundle\Repository\BeerRepository
+    repositoryClass: BeerScore\Beer\Infrastructure\Persistance\Repository\Doctrine\BeerRepository
     id:
         id:
             type: integer

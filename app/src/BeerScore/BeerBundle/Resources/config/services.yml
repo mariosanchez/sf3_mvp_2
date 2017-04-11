@@ -1,2 +1,14 @@
 imports:
     - {resource: '../../../../../../src/Beer/Infrastructure/DependencyInjection/Symfony/services.yml'}
+services:
+  BeerScore\BeerBundle\Controller\GetAllController:
+    class: BeerScore\BeerBundle\Controller\GetAllController
+    arguments:
+      - '@service_container'
+      - '@BeerScore\Beer\Application\Service\GetBeersService'
+
+  BeerScore\BeerBundle\Controller\CreateController:
+    class: BeerScore\BeerBundle\Controller\CreateController
+    arguments:
+      - '@service_container'
+      - '@BeerScore\Beer\Application\Service\PostBeerService'

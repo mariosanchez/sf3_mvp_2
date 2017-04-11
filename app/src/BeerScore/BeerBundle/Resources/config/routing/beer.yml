@@ -5,7 +5,7 @@ beer_show:
 
 beer_new:
     path:     /new
-    defaults: { _controller: "BeerScoreBeerBundle:Beer:new" }
+    defaults: { _controller: "BeerScoreBeerBundle:Create:new" }
     methods:  [GET, POST]
 
 beer_edit:

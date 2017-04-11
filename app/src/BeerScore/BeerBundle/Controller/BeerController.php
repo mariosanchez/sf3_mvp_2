@@ -13,48 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class BeerController extends Controller
 {
-    /**
-     * Lists all beer entities.
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function indexAction()
-    {
-        $entityManager = $this->getDoctrine()->getManager();
 
-        $beers = $entityManager->getRepository('BeerScoreBeerBundle:Beer')->findAll();
-
-        return $this->render('BeerScoreBeerBundle:Beer:index.html.twig', array(
-            'beers' => $beers,
-        ));
-    }
-
-    /**
-     * Creates a new beer entity.
-     *
-     * @param Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
-     */
-    public function newAction(Request $request)
-    {
-        $beer = new Beer();
-        $form = $this->createForm('BeerScore\BeerBundle\Form\BeerType', $beer);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($beer);
-            $entityManager->flush($beer);
-
-            return $this->redirectToRoute('beer_show', array('id' => $beer->getId()));
-        }
-
-        return $this->render('BeerScoreBeerBundle:Beer:new.html.twig', array(
-            'beer' => $beer,
-            'form' => $form->createView(),
-        ));
-    }
 
     /**
      * Finds and displays a beer entity.
