@@ -13,8 +13,25 @@ use \Doctrine\ORM\EntityRepository;
  */
 class BeerRepository extends EntityRepository implements BeerRepositoryInterface
 {
-    public function findAll()
+
+    /**
+     * @param int $id
+     * @return null|object
+     */
+    public function findById(int $id)
     {
-        return $this->findBy(array(), array('score' => 'DESC'));
+        return $this->find($id);
+    }
+
+    /**
+     * @param null $orderBy
+     * @return array
+     */
+    public function findAll($orderBy = null): array
+    {
+        return $this->findBy(
+            array(),
+            isset($orderBy) ? $orderBy : array()
+        );
     }
 }

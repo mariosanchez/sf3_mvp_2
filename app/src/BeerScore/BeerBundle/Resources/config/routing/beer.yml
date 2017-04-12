@@ -1,6 +1,6 @@
 beer_show:
     path:     /{id}/show
-    defaults: { _controller: "BeerScoreBeerBundle:Beer:show" }
+    defaults: { _controller: "BeerScoreBeerBundle:Get:show" }
     methods:  GET
 
 beer_new:

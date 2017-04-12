@@ -7,6 +7,12 @@ services:
       - '@service_container'
       - '@BeerScore\Beer\Application\Service\GetBeersService'
 
+  BeerScore\BeerBundle\Controller\GetController:
+    class: BeerScore\BeerBundle\Controller\GetController
+    arguments:
+      - '@service_container'
+      - '@BeerScore\Beer\Application\Service\GetBeerService'
+
   BeerScore\BeerBundle\Controller\CreateController:
     class: BeerScore\BeerBundle\Controller\CreateController
     arguments:

@@ -7,8 +7,5 @@ class PostBeerService
 
     public function __invoke()
     {
-        echo '<pre>';
-        echo 'CAGARRUTA';
-        echo '</pre>';
     }
 }

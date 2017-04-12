@@ -2,13 +2,18 @@
 
 namespace BeerScore\Beer\Domain\Model;
 
-use Doctrine\Common\Collections\Collection;
-
 interface BeerRepository
 {
     /**
+     * Returns entity with given id
+     * @param int $id
+     * @return mixed
+     */
+    public function findById(int $id);
+
+    /**
      * Returns all entities
-     * @return Collection
+     * @return array
      */
     public function findAll();
 }

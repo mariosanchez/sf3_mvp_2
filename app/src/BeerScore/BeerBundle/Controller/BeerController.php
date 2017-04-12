@@ -15,22 +15,7 @@ class BeerController extends Controller
 {
 
 
-    /**
-     * Finds and displays a beer entity.
-     *
-     * @param Beer $beer
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function showAction(Beer $beer)
-    {
-        $deleteForm = $this->createDeleteForm($beer);
 
-        return $this->render('BeerScoreBeerBundle:Beer:show.html.twig', array(
-            'beer' => $beer,
-            'delete_form' => $deleteForm->createView(),
-        ));
-    }
 
     /**
      * Displays a form to edit an existing beer entity.

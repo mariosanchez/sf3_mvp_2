@@ -5,6 +5,11 @@ services:
     arguments:
       - '@BeerScore\Beer\Infrastructure\Persistance\Repository\Doctrine\BeerRepository'
 
+  BeerScore\Beer\Application\Service\GetBeerService:
+    class: BeerScore\Beer\Application\Service\GetBeerService
+    arguments:
+      - '@BeerScore\Beer\Infrastructure\Persistance\Repository\Doctrine\BeerRepository'
+
   BeerScore\Beer\Application\Service\PostBeerService:
     class: BeerScore\Beer\Application\Service\PostBeerService
 

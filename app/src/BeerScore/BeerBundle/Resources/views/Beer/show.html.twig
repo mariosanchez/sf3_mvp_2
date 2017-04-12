@@ -27,9 +27,9 @@
             <a class="waves-effect waves-light btn" href="{{ path('beer_edit', { 'id': beer.id }) }}">Edit</a>
         </div>
         <div class="col s1">
-            {{ form_start(delete_form) }}
-            <input class="waves-effect waves-light btn red" type="submit" value="Delete">
-            {{ form_end(delete_form) }}
+            <form name="form" method="post" action="{{ path('beer_delete', { 'id': beer.id }) }}"><input type="hidden" name="_method" value="DELETE">
+            <i class="waves-effect waves-light btn red waves-input-wrapper" style=""><input class="waves-button-input" type="submit" value="Delete"></i>
+            <input type="hidden" id="form__token" name="form[_token]" value="{{ csrf_token('form') }}"></form>
         </div>
     </div>
 {% endblock %}

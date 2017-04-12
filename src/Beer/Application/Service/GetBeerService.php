@@ -4,7 +4,7 @@ namespace BeerScore\Beer\Application\Service;
 
 use BeerScore\Beer\Domain\Model\BeerRepository;
 
-class GetBeersService
+class GetBeerService
 {
     /**
      * @var BeerRepository
@@ -12,7 +12,7 @@ class GetBeersService
     private $repository;
 
     /**
-     * GetBeersService constructor.
+     * GetBeerService constructor.
      * @param BeerRepository $repository
      */
     public function __construct(
@@ -22,11 +22,12 @@ class GetBeersService
     }
 
     /**
-     * @return \Doctrine\Common\Collections\Collection
+     * @param $data
+     * @return mixed
      */
-    public function __invoke()
+    public function __invoke($data)
     {
 
-        return $this->repository->findAll(array('score' => 'DESC'));
+        return $this->repository->find($data['id']);
     }
 }

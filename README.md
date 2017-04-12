@@ -22,6 +22,9 @@ We will try to isolate Symfony from the business logic uncoupling it from the fr
 
 Let's imagine that BeerScore is now a promising long term application with lots of investment and it needs to be very maintainable and very testable application as well as needs to be prepared for high changeability.
 
+In this case we are trying to implement an example of ports and adapters (aka hexagonal) architecture for the BeerBundle (just as an example). 
+The main goal of this kind of architectures is, in very huge applications, reach high maintainability and high testability.
+
 
 ## Work we could do from here
 * Implement CQRS
