@@ -29,7 +29,7 @@ class BeerType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'BeerScore\BeerBundle\Entity\Beer'
+            'data_class' => 'BeerScore\Beer\Domain\Model\Beer'
         ));
     }
 

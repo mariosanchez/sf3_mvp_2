@@ -2,7 +2,7 @@
 
 namespace BeerScore\ReviewBundle\Entity;
 
-use BeerScore\BeerBundle\Entity\Beer;
+use BeerScore\Beer\Domain\Model\Beer;
 
 /**
  * Review

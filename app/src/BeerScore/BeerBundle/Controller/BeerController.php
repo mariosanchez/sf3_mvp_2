@@ -2,7 +2,7 @@
 
 namespace BeerScore\BeerBundle\Controller;
 
-use BeerScore\BeerBundle\Entity\Beer;
+use BeerScore\Beer\Domain\Model\Beer;
 use BeerScore\ReviewBundle\Entity\Review;
 use BeerScore\ReviewBundle\Event\ReviewDoneEvent;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;

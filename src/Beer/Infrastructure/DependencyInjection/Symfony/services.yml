@@ -13,4 +13,4 @@ services:
     class: BeerScore\Beer\Infrastructure\Persistance\Repository\Doctrine\BeerRepository
     factory: ["@doctrine", getRepository]
     arguments:
-      - 'BeerScore\BeerBundle\Entity\Beer'
+      - 'BeerScore\Beer\Domain\Model\Beer'

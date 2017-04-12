@@ -12,3 +12,13 @@ services:
     arguments:
       - '@service_container'
       - '@BeerScore\Beer\Application\Service\PostBeerService'
+
+doctrine:
+  orm:
+    mappings:
+      Beer:
+        mapping: true
+        type: yml
+        dir: '%kernel.root_dir%/../../src/Beer/Infrastructure/Persistance/Repository/Doctrine/Mapping'
+        prefix: 'BeerScore\Beer\Domain\Model'
+        is_bundle: false

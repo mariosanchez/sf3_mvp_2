@@ -1,4 +1,4 @@
-BeerScore\BeerBundle\Entity\Beer:
+BeerScore\Beer\Domain\Model\Beer:
     type: entity
     table: null
     repositoryClass: BeerScore\Beer\Infrastructure\Persistance\Repository\Doctrine\BeerRepository

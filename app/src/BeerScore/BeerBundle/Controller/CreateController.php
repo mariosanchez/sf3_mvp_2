@@ -2,7 +2,7 @@
 
 namespace BeerScore\BeerBundle\Controller;
 
-use BeerScore\BeerBundle\Entity\Beer;
+use BeerScore\Beer\Domain\Model\Beer;
 use BeerScore\Beer\Application\Service\PostBeerService;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\DependencyInjection\ContainerInterface;

@@ -43,7 +43,7 @@ BeerScore\ReviewBundle\Entity\Review:
             column: updated_at
     manyToOne:
         beer:
-            targetEntity: BeerScore\BeerBundle\Entity\Beer
+            targetEntity: BeerScore\Beer\Domain\Model\Beer
             inversedBy: reviews
     lifecycleCallbacks:
         prePersist: [ updatedTimestamps ]
