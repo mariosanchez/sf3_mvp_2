@@ -22,6 +22,8 @@ class GetBeersService
     }
 
     /**
+     * Returns all beers
+     *
      * @return \Doctrine\Common\Collections\Collection
      */
     public function __invoke()

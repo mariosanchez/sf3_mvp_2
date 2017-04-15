@@ -5,8 +5,13 @@ beer_show:
 
 beer_new:
     path:     /new
+    defaults: { _controller: "BeerScoreBeerBundle:Create:renderForm" }
+    methods:  GET
+
+beer_new_post:
+    path:     /new
     defaults: { _controller: "BeerScoreBeerBundle:Create:new" }
-    methods:  [GET, POST]
+    methods:  POST
 
 beer_edit:
     path:     /{id}/edit

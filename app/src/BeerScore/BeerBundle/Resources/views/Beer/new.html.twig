@@ -3,14 +3,64 @@
 {% block body %}
     <h1>Beer creation</h1>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input class="waves-effect waves-light btn" type="submit" value="Create" />
-    {{ form_end(form) }}
+    <form name="beerscorebeerbundle_beer" method="post" action="{{ path('beer_new') }}">
+        <div id="beerscorebeerbundle_beer">
+            <div>
+                <label for="beerscorebeerbundle_beer_name" class="required">Name</label>
+                <input type="text"
+                        id="beerscorebeerbundle_beer_name"
+                        name="name"
+                        required="required"
+                        maxlength="255">
+            </div>
+            <div>
+                <label for="beerscorebeerbundle_beer_brewery" class="required">Brewery</label>
+                <input type="text"
+                          id="beerscorebeerbundle_beer_brewery"
+                          name="brewery"
+                          required="required"
+                          maxlength="255">
+            </div>
+            <div>
+                <label for="beerscorebeerbundle_beer_style" class="required">Style</label>
+                <input type="text"
+                          id="beerscorebeerbundle_beer_style"
+                          name="style"
+                          required="required"
+                          maxlength="255">
+            </div>
+            <div>
+                <label for="beerscorebeerbundle_beer_abv" class="required">Abv</label>
+                <input type="text"
+                          id="beerscorebeerbundle_beer_abv"
+                          name="abv"
+                          required="required">
+            </div>
+            <div>
+                <label for="beerscorebeerbundle_beer_country" class="required">Country</label>
+                <input type="text"
+                          id="beerscorebeerbundle_beer_country"
+                          name="country"
+                          required="required"
+                          maxlength="2">
+            </div>
+            <div>
+                <label for="beerscorebeerbundle_beer_photo" class="required">Photo</label>
+                <input type="url"
+                          id="beerscorebeerbundle_beer_photo"
+                          name="photo"
+                          required="required">
+            </div>
+            <input type="hidden" id="form__token" name="form[_token]" value="{{ csrf_token('form') }}">
+        </div>
+        <i class="waves-effect waves-light btn waves-input-wrapper" style="">
+            <input class="waves-button-input" type="submit" value="Create">
+        </i>
+    </form>
 
     <ul>
         <li>
-            <a class="waves-effect waves-light btn" href="{{ path('beer_index') }}">Back to the list</a>
+            <a class="waves-effect waves-light btn" href="{{ path('beer_index') }}">List</a>
         </li>
     </ul>
 {% endblock %}

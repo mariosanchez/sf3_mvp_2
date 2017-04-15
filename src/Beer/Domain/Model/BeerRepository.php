@@ -16,4 +16,10 @@ interface BeerRepository
      * @return array
      */
     public function findAll();
+
+    /**
+     * Persists a beer
+     * @param Beer $beer
+     */
+    public function save(Beer $beer);
 }

@@ -3,6 +3,7 @@
 namespace BeerScore\Beer\Infrastructure\Persistance\Repository\Doctrine;
 
 use BeerScore\Beer\Domain\Model\BeerRepository as BeerRepositoryInterface;
+use BeerScore\Beer\Domain\Model\Beer;
 use \Doctrine\ORM\EntityRepository;
 
 /**
@@ -33,5 +34,15 @@ class BeerRepository extends EntityRepository implements BeerRepositoryInterface
             array(),
             isset($orderBy) ? $orderBy : array()
         );
+    }
+
+    /**
+     * @param \BeerScore\Beer\Domain\Model\Beer $beer
+     */
+    public function save(Beer $beer)
+    {
+        $entityManager = $this->getEntityManager();
+        $entityManager->persist($beer);
+        $entityManager->flush($beer);
     }
 }

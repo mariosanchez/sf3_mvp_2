@@ -12,6 +12,8 @@ services:
 
   BeerScore\Beer\Application\Service\PostBeerService:
     class: BeerScore\Beer\Application\Service\PostBeerService
+    arguments:
+      - '@BeerScore\Beer\Infrastructure\Persistance\Repository\Doctrine\BeerRepository'
 
 # INFRASTRUCTURE
   BeerScore\Beer\Infrastructure\Persistance\Repository\Doctrine\BeerRepository:

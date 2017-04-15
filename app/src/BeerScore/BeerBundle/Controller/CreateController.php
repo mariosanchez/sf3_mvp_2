@@ -2,7 +2,6 @@
 
 namespace BeerScore\BeerBundle\Controller;
 
-use BeerScore\Beer\Domain\Model\Beer;
 use BeerScore\Beer\Application\Service\PostBeerService;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -37,6 +36,12 @@ class CreateController extends Controller
         $this->container = $container;
     }
 
+    public function renderFormAction()
+    {
+
+        return $this->render('BeerScoreBeerBundle:Beer:new.html.twig', array());
+    }
+
     /**
      * Creates a new beer entity.
      *
@@ -46,22 +51,8 @@ class CreateController extends Controller
      */
     public function newAction(Request $request)
     {
-        ($this->service)();
-        $beer = new Beer();
-        $form = $this->createForm('BeerScore\BeerBundle\Form\BeerType', $beer);
-        $form->handleRequest($request);
+        $beer = ($this->service)($request->request->all());
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($beer);
-            $entityManager->flush($beer);
-
-            return $this->redirectToRoute('beer_show', array('id' => $beer->getId()));
-        }
-
-        return $this->render('BeerScoreBeerBundle:Beer:new.html.twig', array(
-            'beer' => $beer,
-            'form' => $form->createView(),
-        ));
+        return $this->redirectToRoute('beer_show', array('id' => $beer->getId()));
     }
 }

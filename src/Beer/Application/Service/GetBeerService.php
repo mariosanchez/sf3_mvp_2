@@ -22,6 +22,8 @@ class GetBeerService
     }
 
     /**
+     * Returns a beer by given data
+     *
      * @param $data
      * @return mixed
      */
