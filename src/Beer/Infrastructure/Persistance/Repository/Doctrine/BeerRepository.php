@@ -38,11 +38,17 @@ class BeerRepository extends EntityRepository implements BeerRepositoryInterface
 
     /**
      * @param \BeerScore\Beer\Domain\Model\Beer $beer
+     * @return Beer
      */
-    public function save(Beer $beer)
+    public function save(Beer $beer): Beer
     {
         $entityManager = $this->getEntityManager();
-        $entityManager->persist($beer);
+        $id = $beer->getId();
+        if (!isset($id)) {
+            $entityManager->persist($beer);
+        }
         $entityManager->flush($beer);
+
+        return $beer;
     }
 }

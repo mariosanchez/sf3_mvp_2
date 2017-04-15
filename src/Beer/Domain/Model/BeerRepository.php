@@ -20,6 +20,7 @@ interface BeerRepository
     /**
      * Persists a beer
      * @param Beer $beer
+     * @return Beer
      */
-    public function save(Beer $beer);
+    public function save(Beer $beer): Beer;
 }

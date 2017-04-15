@@ -19,6 +19,18 @@ services:
       - '@service_container'
       - '@BeerScore\Beer\Application\Service\PostBeerService'
 
+  BeerScore\BeerBundle\Controller\EditController:
+    class: BeerScore\BeerBundle\Controller\EditController
+    arguments:
+      - '@service_container'
+      - '@BeerScore\Beer\Application\Service\PutBeerService'
+
+  BeerScore\BeerBundle\Controller\RenderEditController:
+    class: BeerScore\BeerBundle\Controller\RenderEditController
+    arguments:
+      - '@service_container'
+      - '@BeerScore\Beer\Application\Service\GetBeerService'
+
 doctrine:
   orm:
     mappings:

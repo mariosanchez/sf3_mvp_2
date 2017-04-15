@@ -15,8 +15,13 @@ beer_new_post:
 
 beer_edit:
     path:     /{id}/edit
-    defaults: { _controller: "BeerScoreBeerBundle:Beer:edit" }
-    methods:  [GET, POST]
+    defaults: { _controller: "BeerScoreBeerBundle:RenderEdit:renderForm" }
+    methods:  GET
+
+beer_edit_post:
+    path:     /{id}/edit
+    defaults: { _controller: "BeerScoreBeerBundle:Edit:edit" }
+    methods:  POST
 
 beer_delete:
     path:     /{id}/delete

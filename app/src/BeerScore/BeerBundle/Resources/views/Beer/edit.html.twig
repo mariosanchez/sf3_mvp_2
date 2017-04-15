@@ -3,23 +3,79 @@
 {% block body %}
     <h1>Beer edit</h1>
 
-    <div class="row">
-        <div class="col s12">
-        {{ form_start(edit_form) }}
-            {{ form_widget(edit_form) }}
-            <input class="waves-effect waves-light btn" type="submit" value="Edit" />
-        {{ form_end(edit_form) }}
+    <form name="beerscorebeerbundle_beer" method="post" action="{{ path('beer_edit_post', { 'id': beer.id }) }}">
+        <div id="beerscorebeerbundle_beer">
+            <div>
+                <label for="beerscorebeerbundle_beer_name" class="required">Name</label>
+                <input type="text"
+                       id="beerscorebeerbundle_beer_name"
+                       name="name"
+                       required="required"
+                       maxlength="255"
+                       value="{{ beer.name }}">
+            </div>
+            <div>
+                <label for="beerscorebeerbundle_beer_brewery" class="required">Brewery</label>
+                <input type="text"
+                       id="beerscorebeerbundle_beer_brewery"
+                       name="brewery"
+                       required="required"
+                       maxlength="255"
+                       value="{{ beer.brewery }}">
+            </div>
+            <div>
+                <label for="beerscorebeerbundle_beer_style" class="required">Style</label>
+                <input type="text"
+                       id="beerscorebeerbundle_beer_style"
+                       name="style"
+                       required="required"
+                       maxlength="255"
+                       value="{{ beer.style }}">
+
+            </div>
+            <div>
+                <label for="beerscorebeerbundle_beer_abv" class="required">Abv</label>
+                <input type="text"
+                       id="beerscorebeerbundle_beer_abv"
+                       name="abv"
+                       required="required"
+                       value="{{ beer.abv }}">
+
+            </div>
+            <div>
+                <label for="beerscorebeerbundle_beer_country" class="required">Country</label>
+                <input type="text"
+                       id="beerscorebeerbundle_beer_country"
+                       name="country"
+                       required="required"
+                       maxlength="2"
+                       value="{{ beer.country }}">
+
+            </div>
+            <div>
+                <label for="beerscorebeerbundle_beer_photo" class="required">Photo</label>
+                <input type="url"
+                       id="beerscorebeerbundle_beer_photo"
+                       name="photo"
+                       required="required"
+                       value="{{ beer.photo }}">
+            </div>
+            <input type="hidden" id="form__token" name="form[_token]" value="{{ csrf_token('form') }}">
         </div>
-    </div>
+        <i class="waves-effect waves-light btn waves-input-wrapper" style="">
+            <input class="waves-button-input" type="submit" value="Edit">
+        </i>
+    </form>
 
     <div class="row">
         <div class="col s2">
             <a class="waves-effect waves-light btn" href="{{ path('beer_index') }}">List</a>
         </div>
         <div class="col s1">
-            {{ form_start(delete_form) }}
-            <input class="waves-effect waves-light btn red" type="submit" value="Delete">
-            {{ form_end(delete_form) }}
+            <form name="form" method="post" action="{{ path('beer_delete', { 'id': beer.id }) }}"><input type="hidden" name="_method" value="DELETE">
+                <i class="waves-effect waves-light btn red waves-input-wrapper" style=""><input class="waves-button-input" type="submit" value="Delete"></i>
+                <input type="hidden" id="form__token" name="form[_token]" value="{{ csrf_token('form') }}">
+            </form>
         </div>
     </div>
 {% endblock %}

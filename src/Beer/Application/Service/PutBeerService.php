@@ -5,7 +5,7 @@ namespace BeerScore\Beer\Application\Service;
 use BeerScore\Beer\Domain\Model\Beer;
 use BeerScore\Beer\Domain\Model\BeerRepository;
 
-class PostBeerService
+class PutBeerService
 {
 
     /**
@@ -26,8 +26,10 @@ class PostBeerService
      */
     public function __invoke($data)
     {
-
-        $beer = new Beer();
+        $beer = $this->repository->findById($data['id']);
+        if (!isset($beer)) {
+            throw new \InvalidArgumentException();
+        }
         $beer->setName($data['name']);
         $beer->setBrewery($data['brewery']);
         $beer->setStyle($data['style']);
