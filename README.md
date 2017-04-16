@@ -27,9 +27,10 @@ The main goal of this kind of architectures is, in very huge applications, reach
 
 
 ## Work we could do from here
-* Implement CQRS
+* Implement CQRS (Commands & Queries + handlers)
+* Implement domain events
 * Separate our own models from the Doctrine ones
 * Implement value objects
 * Implement DTO and DataTransformers/Serializers
-* Separate an API from rendering controllers in different bundles/microservices
+* Separate an API from rendering controllers in different bundles o microservices
 * And much, much more...

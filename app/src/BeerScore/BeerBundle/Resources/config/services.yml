@@ -1,5 +1,6 @@
 imports:
     - {resource: '../../../../../../src/Beer/Infrastructure/DependencyInjection/Symfony/services.yml'}
+
 services:
   BeerScore\BeerBundle\Controller\GetAllController:
     class: BeerScore\BeerBundle\Controller\GetAllController
@@ -30,6 +31,12 @@ services:
     arguments:
       - '@service_container'
       - '@BeerScore\Beer\Application\Service\GetBeerService'
+
+  BeerScore\BeerBundle\Controller\DeleteController:
+    class: BeerScore\BeerBundle\Controller\DeleteController
+    arguments:
+      - '@service_container'
+      - '@BeerScore\Beer\Application\Service\DeleteBeerService'
 
 doctrine:
   orm:

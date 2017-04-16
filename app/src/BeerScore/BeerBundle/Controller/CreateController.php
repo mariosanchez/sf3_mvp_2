@@ -36,6 +36,11 @@ class CreateController extends Controller
         $this->container = $container;
     }
 
+    /**
+     * Render creation view with form
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function renderFormAction()
     {
 

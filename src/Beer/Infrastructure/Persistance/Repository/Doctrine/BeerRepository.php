@@ -16,19 +16,23 @@ class BeerRepository extends EntityRepository implements BeerRepositoryInterface
 {
 
     /**
+     * Returns entity with given id
+     *
      * @param int $id
-     * @return null|object
+     * @return null|Beer
      */
-    public function findById(int $id)
+    public function findById(int $id): ?Beer
     {
         return $this->find($id);
     }
 
     /**
-     * @param null $orderBy
+     * Returns all entities
+     *
+     * @param array $orderBy
      * @return array
      */
-    public function findAll($orderBy = null): array
+    public function findAll(array $orderBy = null): array
     {
         return $this->findBy(
             array(),
@@ -37,7 +41,9 @@ class BeerRepository extends EntityRepository implements BeerRepositoryInterface
     }
 
     /**
-     * @param \BeerScore\Beer\Domain\Model\Beer $beer
+     * Persists a beer
+     *
+     * @param Beer $beer
      * @return Beer
      */
     public function save(Beer $beer): Beer
@@ -50,5 +56,17 @@ class BeerRepository extends EntityRepository implements BeerRepositoryInterface
         $entityManager->flush($beer);
 
         return $beer;
+    }
+
+    /**
+     * Removes a beer
+     *
+     * @param Beer $beer
+     */
+    public function remove(Beer $beer)
+    {
+        $entityManager = $this->getEntityManager();
+        $entityManager->remove($beer);
+        $entityManager->flush($beer);
     }
 }

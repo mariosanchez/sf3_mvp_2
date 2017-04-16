@@ -20,6 +20,11 @@ services:
     arguments:
       - '@BeerScore\Beer\Infrastructure\Persistance\Repository\Doctrine\BeerRepository'
 
+  BeerScore\Beer\Application\Service\DeleteBeerService:
+    class: BeerScore\Beer\Application\Service\DeleteBeerService
+    arguments:
+      - '@BeerScore\Beer\Infrastructure\Persistance\Repository\Doctrine\BeerRepository'
+
 # INFRASTRUCTURE
   BeerScore\Beer\Infrastructure\Persistance\Repository\Doctrine\BeerRepository:
     class: BeerScore\Beer\Infrastructure\Persistance\Repository\Doctrine\BeerRepository
