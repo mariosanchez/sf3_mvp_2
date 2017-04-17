@@ -43,6 +43,7 @@ BeerScore\Beer\Domain\Model\Beer:
             orderBy: { 'updatedAt': 'DESC' }
             targetEntity: BeerScore\ReviewBundle\Entity\Review
             mappedBy: beer
+            cascade: ["remove"]
     lifecycleCallbacks:
         prePersist: [ updatedTimestamps ]
 
