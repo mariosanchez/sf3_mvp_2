@@ -30,5 +30,10 @@ beer_delete:
 
 beer_add_review:
     path:     /{id}/addReview
-    defaults: { _controller: "BeerScoreBeerBundle:Beer:addReview" }
-    methods:  [GET, POST]
+    defaults: { _controller: "BeerScoreBeerBundle:RenderAddReview:addReview" }
+    methods:  GET
+
+beer_add_review_post:
+    path:     /{id}/addReview
+    defaults: { _controller: "BeerScoreBeerBundle:AddReview:addReview" }
+    methods:  POST

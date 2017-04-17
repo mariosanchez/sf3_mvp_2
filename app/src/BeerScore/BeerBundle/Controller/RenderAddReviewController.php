@@ -6,11 +6,12 @@ use BeerScore\Beer\Application\Service\GetBeerService;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use BeerScore\ReviewBundle\Entity\Review;
 
 /**
  * Beer controller.
  */
-class GetController extends Controller
+class RenderAddReviewController extends Controller
 {
 
     /**
@@ -24,7 +25,7 @@ class GetController extends Controller
     protected $container;
 
     /**
-     * GetAllController constructor.
+     * CreateController constructor.
      * @param ContainerInterface $container
      * @param GetBeerService $service
      */
@@ -37,20 +38,23 @@ class GetController extends Controller
     }
 
     /**
-     * Finds and displays a beer entity.
+     * Adds a review entity to a beer entity.
      *
-     * @param $request Request
+     * @param Request $request
      *
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function showAction(Request $request)
+    public function addReviewAction(Request $request)
     {
-        $beer = ($this->service)([
-            'id' => $request->attributes->get('id'),
-        ]);
+        $review = new Review();
+        $reviewForm = $this->createForm('BeerScore\ReviewBundle\Form\ReviewType', $review);
+        $reviewForm->handleRequest($request);
 
-        return $this->render('BeerScoreBeerBundle:Beer:show.html.twig', array(
+        $beer = ($this->service)($request->attributes->all());
+
+        return $this->render('BeerScoreBeerBundle:Beer:addReview.html.twig', array(
             'beer' => $beer,
+            'review_form' => $reviewForm->createView(),
         ));
     }
 }
